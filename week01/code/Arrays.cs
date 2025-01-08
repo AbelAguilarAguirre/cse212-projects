@@ -12,8 +12,13 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        var result = new double[length]; // create an array of doubles with the length of the input
+        for (var i = 0; i < length; i++) // loop through the array length
+        {
+            result[i] = number * (i + 1); // set the value of the array at index i to the number X i + 1 
+        }
 
-        return []; // replace this return statement with your own
+        return result; // return the array
     }
 
     /// <summary>
@@ -29,5 +34,12 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        var count = data.Count; // get the count of the list
+        var amountToRotate = amount % count; // amount to rotate is the amount modulo count (ex. if you want to rotate 10 times on a list of 5, you only need to rotate 5 times)
+        
+        data.InsertRange(0, data.GetRange(count - amountToRotate, amountToRotate)); // slice the list from the count - amount to the end and add it to the front of the list
+        
+        data.RemoveRange(count, amountToRotate); // remove the elements from the end of the list
+
     }
 }
