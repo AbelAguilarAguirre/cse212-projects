@@ -5,13 +5,13 @@
 
     public static float Run(string text) {
         var stack = new Stack<float>();
-        foreach (var item in text.Split(' ')) {
+        foreach (var item in text.Split(' ')) { // 62+53-/
             if (item == "+" || item == "-" || item == "*" || item == "/") {
                 if (stack.Count < 2)
                     throw new ApplicationException("Invalid Case 1!");
 
-                var op2 = stack.Pop();
-                var op1 = stack.Pop();
+                var op2 = stack.Pop(); // op2 = 3
+                var op1 = stack.Pop(); // op1 = 5
                 float res;
                 if (item == "+") {
                     res = op1 + op2;
@@ -32,7 +32,7 @@
                 stack.Push(res);
             }
             else if (IsFloat(item)) {
-                stack.Push(float.Parse(item));
+                stack.Push(float.Parse(item)); // [8, 2]
             }
             else if (item == "") {
             }
