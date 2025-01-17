@@ -24,15 +24,18 @@
 
         // Find the index of the item with the highest priority to remove
         var highPriorityIndex = 0;
-        for (int index = 1; index < _queue.Count - 1; index++)
+        for (var i = 1; i < _queue.Count; i++)
         {
-            if (_queue[index].Priority >= _queue[highPriorityIndex].Priority)
-                highPriorityIndex = index;
+            if (_queue[i].Priority > _queue[highPriorityIndex].Priority)
+            {
+                highPriorityIndex = i;
+            }
         }
 
         // Remove and return the item with the highest priority
-        var value = _queue[highPriorityIndex].Value;
-        return value;
+        var highPriorityItem = _queue[highPriorityIndex];
+        _queue.RemoveAt(highPriorityIndex);
+        return highPriorityItem.Value;
     }
 
     public override string ToString()
