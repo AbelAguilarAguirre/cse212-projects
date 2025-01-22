@@ -39,12 +39,17 @@ public class PriorityQueueTests
         priorityQueue.Enqueue("paul", 1);
         priorityQueue.Enqueue("joseph", 3);
         Console.WriteLine(priorityQueue.Dequeue());
+        Assert.AreEqual("[jim (Pri:5), john (Pri:4), joe (Pri:2), paul (Pri:1), joseph (Pri:3)]", priorityQueue.ToString());
         Console.WriteLine(priorityQueue.Dequeue());
+        Assert.AreEqual("[john (Pri:4), joe (Pri:2), paul (Pri:1), joseph (Pri:3)]", priorityQueue.ToString());
         Console.WriteLine(priorityQueue.Dequeue());
+        Assert.AreEqual("[joe (Pri:2), paul (Pri:1), joseph (Pri:3)]", priorityQueue.ToString());
         Console.WriteLine(priorityQueue.Dequeue());
+        Assert.AreEqual("[joe (Pri:2), paul (Pri:1)]", priorityQueue.ToString());
         Console.WriteLine(priorityQueue.Dequeue());
+        Assert.AreEqual("[paul (Pri:1)]", priorityQueue.ToString());
         Console.WriteLine(priorityQueue.Dequeue());
-        Assert.AreEqual("[jim (Pri:5), john (Pri:4), kyle (Pri:6), joe (Pri:2), paul (Pri:1), joseph (Pri:3)]", priorityQueue.ToString());
+        Assert.AreEqual("[]", priorityQueue.ToString());
     }
 
     // Add more test cases as needed below.
@@ -64,12 +69,15 @@ public class PriorityQueueTests
         priorityQueue.Enqueue("paul", 1);
         priorityQueue.Enqueue("joseph", 3);
         Console.WriteLine(priorityQueue.Dequeue());
+        Assert.AreEqual("[jim (Pri:5), john (Pri:4), joe (Pri:6), paul (Pri:1), joseph (Pri:3)]", priorityQueue.ToString());
+        Console.WriteLine(priorityQueue.Dequeue());
+        Assert.AreEqual("[jim (Pri:5), john (Pri:4), paul (Pri:1), joseph (Pri:3)]", priorityQueue.ToString());
         Console.WriteLine(priorityQueue.Dequeue());
         Console.WriteLine(priorityQueue.Dequeue());
         Console.WriteLine(priorityQueue.Dequeue());
         Console.WriteLine(priorityQueue.Dequeue());
-        Console.WriteLine(priorityQueue.Dequeue());
-        Assert.AreEqual("[jim (Pri:5), john (Pri:4), kyle (Pri:6), joe (Pri:6), paul (Pri:1), joseph (Pri:3)]", priorityQueue.ToString());
+        Console.WriteLine(priorityQueue);
+
     }
 
     [TestMethod]
